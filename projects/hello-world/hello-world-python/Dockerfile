@@ -1,9 +1,11 @@
 FROM python:alpine3.10
 WORKDIR /app 
-COPY . /app
+COPY requirements.txt /app
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 EXPOSE 5000
-CMD python ./launch.py
+COPY . /app
+#CMD python ./launch.py
 
 #COPY requirements.txt /app/requirements.txt
-#ENTRYPOINT ["python", "./launch.py"]
+ENTRYPOINT ["python", "./launch.py"]

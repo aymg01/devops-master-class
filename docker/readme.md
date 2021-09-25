@@ -109,6 +109,9 @@ docker network inspect bridge
 
 docker run -d -p 8100:8100 --env CURRENCY_EXCHANGE_SERVICE_HOST=http://currency-exchange --name=currency-conversion --link currency-exchange in28min/currency-conversion:0.0.1-RELEASE
 
+```
+## Step 22
+```
 docker network create currency-network
 docker container stop currency-exchange
 docker container stop currency-conversion
@@ -118,6 +121,10 @@ docker run -d -p 8100:8100 --env CURRENCY_EXCHANGE_SERVICE_HOST=http://currency-
 docker-compose --version
 cd ../../microservices/
 docker-compose up
+
+```
+## Step 25
+```
 docker-compose up -d
 docker container ls
 docker network ls
@@ -125,10 +132,12 @@ docker network inspect microservices_currency-compose-network
 docker-compose down
 docker container ls -a
 docker system prune -a
-docker-compose config
+docker-compose config # To validate the yaml file
 docker-compose images
 docker-compose ps
 docker-compose top
+docker-compose stop
+docker-compose kill
 
 ```
 
